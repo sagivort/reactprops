@@ -2,14 +2,6 @@ import './App.css'
 import Term from './components/Term'
 import emojipedia from './emojipedia'
 
-
-
-function createTerm(emojiObj) {
-  return (
-    <Term key={emojiObj.id} emoji={emojiObj.emoji} title={emojiObj.name} content={emojiObj.meaning} />
-  );
-}
-
 function App() {
 
   return (
@@ -21,7 +13,10 @@ function App() {
 
         <dl className="dictionary">
 
-          {emojipedia.map(createTerm)}
+          {emojipedia.map((emojiObj) => {
+            return <Term key={emojiObj.id} emoji={emojiObj.emoji} title={emojiObj.name} content={emojiObj.meaning} />
+          }
+          )}
         </dl >
 
       </div >
